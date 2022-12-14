@@ -8,7 +8,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
+    <nav className="navbar sticky-top bg-dark">
       <Link to="/boards">Race Discussion Boards</Link>
       &nbsp; | &nbsp;
       {/* <Link to="/orders/new">New Order</Link>
