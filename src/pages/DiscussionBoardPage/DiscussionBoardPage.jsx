@@ -1,15 +1,10 @@
-import { checkToken } from '../../utilities/users-service';
+import './DiscussionBoardPage.css'
 
 export default function DiscussionBoardPage() {
-  async function handleCheckToken() {
-    const expDate = await checkToken();
-    console.log(expDate);
-  }
   
   return (
-    <>
+    <div className="DiscussionBoard">
       <h1>DiscussionBoardPage</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
-    </>
+    </div>
   );
 }

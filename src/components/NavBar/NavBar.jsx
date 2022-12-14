@@ -11,8 +11,8 @@ export default function NavBar({ user, setUser }) {
     <nav className="navbar sticky-top bg-dark">
       <Link to="/boards">Race Discussion Boards</Link>
       &nbsp; | &nbsp;
-      {/* <Link to="/orders/new">New Order</Link>
-      &nbsp; | &nbsp; */}
+      <Link to="/drivers">Drivers</Link>
+      &nbsp; | &nbsp;
       <Link to="/">Home</Link>
       &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
