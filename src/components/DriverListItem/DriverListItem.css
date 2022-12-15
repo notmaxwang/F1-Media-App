@@ -1,0 +1,11 @@
+.DriverListItem {
+  margin-top: 2vmin;
+  margin-left: 5vmin;
+  outline-style: solid;
+}
+
+.DriverListItem > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
