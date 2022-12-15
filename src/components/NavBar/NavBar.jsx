@@ -8,15 +8,11 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="navbar sticky-top bg-dark">
-      <Link to="/boards">Race Discussion Boards</Link>
-      &nbsp; | &nbsp;
-      <Link to="/drivers">Drivers</Link>
-      &nbsp; | &nbsp;
-      <Link to="/">Home</Link>
-      &nbsp; | &nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp; | &nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+    <nav className="navbar sticky-top bg-light">
+      <Link to="/boards" className="btn btn-sm btn-outline-secondary">Race Discussion Boards</Link>
+      <Link to="/drivers"className="btn btn-sm btn-outline-secondary">Drivers</Link>
+      <Link to="/"className="btn btn-sm btn-outline-secondary">Home</Link>
+      <Link to="" onClick={handleLogOut} className="btn btn-sm btn-outline-secondary">Log Out</Link>
     </nav>
   );
 }
