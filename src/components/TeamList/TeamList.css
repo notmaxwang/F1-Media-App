@@ -5,3 +5,22 @@
   font-size: 1.7vw;
   margin-left: 1.5vmin;
 }
+
+.TeamList li {
+  padding: .6vmin;
+  text-align: center;
+  border-radius: .5vmin;
+  margin-bottom: .5vmin;
+}
+
+.TeamList li:hover:not(.active) {
+  cursor: pointer;
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.TeamList li.active {
+  color: var(--text-dark);
+  background-color: var(--tan-2);
+  border: .1vmin solid var(--tan-3);
+}
