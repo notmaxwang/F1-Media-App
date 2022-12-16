@@ -1,14 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const driver = require('./driver');
 
 const profileSchema = new Schema({
-  userName: {
-    type: String,
-    required: true
-  },
-  userEmail: {
-    type: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
     required: true
   },
   favDrivers: [{type: Schema.Types.ObjectId, ref: 'Driver'}],

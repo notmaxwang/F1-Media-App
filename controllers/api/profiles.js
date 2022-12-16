@@ -6,5 +6,6 @@ module.exports = {
 }
 
 async function create(req, res) {
-  await Profile.create(req.body);
+  const profile = await Profile.create(req.body);
+  res.json(profile);
 }
