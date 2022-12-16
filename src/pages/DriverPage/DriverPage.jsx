@@ -6,40 +6,37 @@ import TeamList from '../../components/TeamList/TeamList';
 import DriverList from '../../components/DriverList/DriverList';
 import './DriverPage.css'
 
+
 export default function DriverPage() {
-  const [driverList, setDriverList] = useState([]);
-  const [storeTeamObj, setStoreTeamObj] = useState([]);
+  const [allDriverList, setAllDriverList] = useState([]);
+  const [allTeams, setAllTeams] = useState([]);
+  const [currDrivers, setCurrDrivers] = useState([]);
   const [activeTeam, setActiveTeam] = useState('');
-  const teamsRef = useRef([]);
   const navigate = useNavigate();
 
   useEffect(function() {
     async function getDrivers() {
       const drivers = await driverAPI.getAll();
-      teamsRef.current = [...new Set(drivers.map(driver => driver.team.name))];
-      setDriverList(drivers);
-      setActiveTeam(teamsRef.current[0]);
+      const teamList = await teamAPI.getAll();
+      setAllDriverList(drivers);
+      setAllTeams(teamList);
+      setCurrDrivers(drivers.filter(driver => driver.team === teamList[0].name));
+      setActiveTeam(teamList[0]);
     }
     getDrivers();
   }, []);
 
-  useEffect(function() {
-    async function getTeam() {
-      const currTeam = await teamAPI.getByName(activeTeam);
-      console.log(currTeam);
-      // setStoreTeamObj(currTeam);
-    }
-    getTeam();
-  });
   
   return (
-    <main className="DriverPage">
+    <main className="DriverPage" style={{backgroundImage: `url(${activeTeam.teamLogoUrl})`}}>
       <TeamList 
-        teams={teamsRef.current}
+        allDrivers={allDriverList}
+        allTeams={allTeams}
         activeTeam={activeTeam}
+        setCurrDrivers={setCurrDrivers}
         setActiveTeam={setActiveTeam} 
       />
-      <DriverList drivers={driverList.filter(driver => driver.team.name === activeTeam)} />
+      <DriverList drivers={currDrivers} />
     </main>
   );
 }

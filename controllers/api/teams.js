@@ -6,7 +6,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const teams = await Team.find({}).sort('name').populate('team').exec();
+  const teams = await Team.find({});
   // re-sort based upon the sortOrder of the populated categories
   res.json(teams);
 }

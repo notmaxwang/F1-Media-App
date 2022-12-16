@@ -1,13 +1,19 @@
 import './TeamList.css';
 
-export default function TeamList({ teams, activeTeam, setActiveTeam }) {
-  const ts = teams.map(team =>
+export default function TeamList({ allDrivers, allTeams, activeTeam, setActiveTeam, setCurrDrivers }) {
+  function setDriverAndTeam(team) {
+    setActiveTeam(team);
+    const currDrivers = allDrivers.filter(driver => driver.team.name === team.name);
+    setCurrDrivers(currDrivers);
+  }
+
+  const ts = allTeams.map(team =>
     <li
       key={team}
       className={team === activeTeam ? 'active' : ''}
-      onClick={() => setActiveTeam(team)}
+      onClick={() => setDriverAndTeam(team)}
     >
-      {team}
+      {team.name}
     </li>
   );
   return (
