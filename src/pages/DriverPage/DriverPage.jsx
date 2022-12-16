@@ -20,15 +20,18 @@ export default function DriverPage() {
       const teamList = await teamAPI.getAll();
       setAllDriverList(drivers);
       setAllTeams(teamList);
-      setCurrDrivers(drivers.filter(driver => driver.team === teamList[0].name));
       setActiveTeam(teamList[0]);
+      setCurrDrivers(allDriverList.filter(driver => driver.team === teamList[0].name));
     }
     getDrivers();
   }, []);
 
   
   return (
-    <main className="DriverPage" style={{backgroundImage: `url(${activeTeam.teamLogoUrl})`}}>
+    <main className="DriverPage" style={{backgroundImage: `url(${activeTeam.teamLogoUrl})`,
+                                         backgroundRepeat: 'repeat',
+                                         backgroundSize: '40%',
+                                        }}>
       <TeamList 
         allDrivers={allDriverList}
         allTeams={allTeams}

@@ -29,7 +29,6 @@ class HomePage extends Component {
     return(
       <div style={this.state.bgStyle}>
         <h1>Start exploring!</h1>
-        <h2>Popular Race Threads</h2>
       </div>
     );
   }

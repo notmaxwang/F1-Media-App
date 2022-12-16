@@ -1,9 +1,10 @@
 .DriverListItem {
+  background-color: white;
   margin-top: 2vmin;
   margin-left: 5vmin;
   margin-bottom: 2vmin;
   outline-style: solid;
-  width: 70vw;
+  width: 60vw;
 }
 
 .DriverListItem > div {
