@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 const driver = require('./driver');
 
 const profileSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+  userName: {
+    type: String,
+    required: true
+  },
+  userEmail: {
+    type: String,
     required: true
   },
   favDrivers: [{type: Schema.Types.ObjectId, ref: 'Driver'}],

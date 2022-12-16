@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { create } from '../../utilities/profile-api';
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
@@ -26,6 +27,7 @@ export default class SignUpForm extends Component {
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
+      // const profile = await create({name, email});
       this.props.setUser(user);
     } catch {
       // An error occurred
