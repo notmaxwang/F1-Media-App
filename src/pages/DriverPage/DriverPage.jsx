@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as driverAPI from '../../utilities/driver-api';
+import * as teamAPI from '../../utilities/team-api';
 import TeamList from '../../components/TeamList/TeamList';
 import DriverList from '../../components/DriverList/DriverList';
 import './DriverPage.css'
 
 export default function DriverPage() {
   const [driverList, setDriverList] = useState([]);
+  const [storeTeamObj, setStoreTeamObj] = useState([]);
   const [activeTeam, setActiveTeam] = useState('');
   const teamsRef = useRef([]);
   const navigate = useNavigate();
@@ -21,6 +23,14 @@ export default function DriverPage() {
     getDrivers();
   }, []);
 
+  useEffect(function() {
+    async function getTeam() {
+      const currTeam = await teamAPI.getByName(activeTeam);
+      console.log(currTeam);
+      // setStoreTeamObj(currTeam);
+    }
+    getTeam();
+  });
   
   return (
     <main className="DriverPage">
