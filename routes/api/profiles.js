@@ -7,4 +7,6 @@ const profilesCtrl = require('../../controllers/api/profiles');
 // POST /api/profiles (create a userprofile)
 router.post('/', profilesCtrl.create);
 
+router.get('/:user', profilesCtrl.getProfile);
+
 module.exports = router;
