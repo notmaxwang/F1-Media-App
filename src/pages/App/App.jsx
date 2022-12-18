@@ -21,7 +21,7 @@ export default function App() {
               {/* Route components in here */}
               {/* <Route path="/boards/:raceid/new" element={<NewThreadPage />} /> */}
               <Route path="/boards" element={<DiscussionBoardPage />} />
-              <Route path="/drivers" element={<DriverPage />}/>
+              <Route path="/drivers" element={<DriverPage user={user}/>}/>
               <Route path="/user" element={<UserProfilePage user={user}/>}/>
               <Route path="/" element={<HomePage user={user}/>} />
             </Routes>

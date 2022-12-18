@@ -19,3 +19,7 @@
   justify-content: space-around;
   font-size: 3vmin;
 }
+
+button {
+  color: black;
+}
