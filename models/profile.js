@@ -8,7 +8,7 @@ const profileSchema = new Schema({
     ref: 'User',
     required: true
   },
-  favDrivers: [driverSchema],
+  favDrivers: [{type: Schema.Types.ObjectId, ref: 'Driver'}],
   // favRaces: [{type: Schema.Types.ObjectId, ref: 'Race'}],
   posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
 }, {
@@ -23,9 +23,9 @@ profileSchema.statics.getFavDriverList = function(user) {
 // Instance method for adding a favorite driver to profile page
 profileSchema.methods.addFavorite = async function (driverId) {
   // 'this' keyword is bound to the profile
-  const currFavDriverList = this.favDrivers;
+  const currProfile = this;
   // Check if the driver already exists in favorites
-  const driver = currFavDriverList.find(driver => driver === driverId);
+  const driver = currProfile.favDrivers.find(driver => driver === driverId);
   if (driver) {
     // It already exists
     console.log('in list');
@@ -34,11 +34,10 @@ profileSchema.methods.addFavorite = async function (driverId) {
     // Note how the mongoose.model method behaves as a getter when passed one arg vs. two
     const Driver = mongoose.model('Driver');
     const getDriver = await Driver.findById(driverId);
-    console.log(getDriver);
-    currFavDriverList.push({ getDriver });
+    currProfile.favDrivers.push(getDriver._id);
   }
   // return the save() method's promise
-  return currFavDriverList.save();
+  return currProfile.save();
 };
 
 
