@@ -25,7 +25,8 @@ export default function DriverPage({user}) {
       setAllDriverList(drivers);
       setAllTeams(teamList);
       setActiveTeam(teamList[0]);
-      setCurrDrivers(allDriverList.filter(driver => driver.team === teamList[0].name));
+      console.log(allDriverList[0].team.name);
+      setCurrDrivers(allDriverList.filter(driver => driver.team === teamList[0]));
     }
     getDrivers();
   }, []);
