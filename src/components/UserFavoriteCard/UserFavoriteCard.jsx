@@ -1,23 +1,25 @@
 import DriverListItem from '../DriverListItem/DriverListItem';
-import {useState} from 'react';
 
 
 export default function UserFavoriteCard({drivers, userProfile, user, handleAddToFavorite}) {
   const driverIdArray = userProfile.favDrivers;
   let storeDriverList = [];
   
+  function getDriver(id) {
+    const temp = (drivers.filter(driver => driver._id === id));
+    console.log(temp);
+    return temp;
+  }
+
   if (driverIdArray) {
-    storeDriverList = driverIdArray.map((driverid, idx) => 
-      // let currDriver = (drivers.filter(driver => driver._id === driverid));
-                                                    <DriverListItem 
-                                                    driver={(drivers.filter(driver => driver._id === driverid))} 
+    storeDriverList = driverIdArray.map((driverid, idx) =>  <DriverListItem 
+                                                    driver={getDriver(driverid)} 
                                                     user={user}
                                                     handleAddToFavorite={handleAddToFavorite}
                                                     key={idx} 
                                                   />);
   }
 
-  console.log(storeDriverList);
 
   return(
     <div className='UserFavoriteCard'>
