@@ -7,8 +7,7 @@ export default function UserFavoriteCard({drivers, userProfile, user, handleAddT
   
   function getDriver(id) {
     const temp = (drivers.filter(driver => driver._id === id));
-    console.log(temp);
-    return temp;
+    return temp[0];
   }
 
   if (driverIdArray) {

@@ -9,7 +9,7 @@ export default function TeamList({ allDrivers, allTeams, activeTeam, setActiveTe
 
   const ts = allTeams.map(team =>
     <li
-      key={team}
+      key={team._id}
       className={team === activeTeam ? 'active' : ''}
       onClick={() => setDriverAndTeam(team)}
     >

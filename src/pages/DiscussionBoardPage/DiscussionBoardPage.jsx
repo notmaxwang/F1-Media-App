@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as postAPI from '../../utilities/post-api';
+import PostList from '../../components/PostList/PostList';
 import './DiscussionBoardPage.css'
 
 export default function DiscussionBoardPage({user}) {

@@ -7,10 +7,25 @@ import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import DriverPage from '../DriverPage/DriverPage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
+import * as driverAPI from '../../utilities/driver-api';
+import * as teamAPI from '../../utilities/team-api';
 import './App.css';
+import { useEffect } from 'react';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [allDriverList, setAllDriverList] = useState([]);
+  const [allTeamList, setAllTeamList] = useState([]);
+
+  useEffect(function() {
+    async function getData() {
+      const driverList = await driverAPI.getAll();
+      const teamList = await teamAPI.getAll();
+      setAllDriverList(driverList);
+      setAllTeamList(teamList);
+    }
+    getData();
+  }, []);
 
   return (
     <main className="App">
@@ -21,8 +36,8 @@ export default function App() {
               {/* Route components in here */}
               {/* <Route path="/boards/:raceid/new" element={<NewThreadPage />} /> */}
               <Route path="/boards" element={<DiscussionBoardPage user={user}/>} />
-              <Route path="/drivers" element={<DriverPage user={user}/>}/>
-              <Route path="/user" element={<UserProfilePage user={user}/>}/>
+              <Route path="/drivers" element={<DriverPage user={user} allDriverList={allDriverList} allTeamList={allTeamList}/>}/>
+              <Route path="/user" element={<UserProfilePage user={user} allDriverList={allDriverList}/>}/>
               <Route path="/" element={<HomePage user={user}/>} />
             </Routes>
           </>

@@ -1,34 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as driverAPI from '../../utilities/driver-api';
-import * as teamAPI from '../../utilities/team-api';
 import TeamList from '../../components/TeamList/TeamList';
 import DriverList from '../../components/DriverList/DriverList';
 import * as profileAPI from '../../utilities/profile-api';
 import './DriverPage.css'
 
 
-export default function DriverPage({user}) {
-  const [allDriverList, setAllDriverList] = useState([]);
-  const [allTeams, setAllTeams] = useState([]);
-  const [currDrivers, setCurrDrivers] = useState([]);
+export default function DriverPage({user, allDriverList , allTeamList}) {
+  const [currDrivers, setCurrDrivers] = useState([allDriverList[1], allDriverList[2]]);
   const [currUserProfile, setCurrUserProfile] = useState([]);
-  const [activeTeam, setActiveTeam] = useState('');
+  const [activeTeam, setActiveTeam] = useState(allTeamList[0]);
   const navigate = useNavigate();
 
   useEffect(function() {
-    async function getDrivers() {
-      const drivers = await driverAPI.getAll();
-      const teamList = await teamAPI.getAll();
+    async function getInfo() {
       const currProfile = await profileAPI.getProfile(user);
       setCurrUserProfile(currProfile);
-      setAllDriverList(drivers);
-      setAllTeams(teamList);
-      setActiveTeam(teamList[0]);
-      console.log(allDriverList[0].team.name);
-      setCurrDrivers(allDriverList.filter(driver => driver.team === teamList[0]));
     }
-    getDrivers();
+    getInfo();
   }, []);
 
 
@@ -47,7 +36,7 @@ export default function DriverPage({user}) {
                                         }}>
       <TeamList 
         allDrivers={allDriverList}
-        allTeams={allTeams}
+        allTeams={allTeamList}
         activeTeam={activeTeam}
         setCurrDrivers={setCurrDrivers}
         setActiveTeam={setActiveTeam} 
