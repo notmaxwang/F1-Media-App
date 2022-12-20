@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as driverAPI from '../../utilities/driver-api';
 import * as teamAPI from '../../utilities/team-api';
 import TeamList from '../../components/TeamList/TeamList';
