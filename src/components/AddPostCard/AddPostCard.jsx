@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './AddPostCard.css'
 
 export default class AddPostCard extends Component {
 

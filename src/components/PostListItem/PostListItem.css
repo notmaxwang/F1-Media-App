@@ -1,0 +1,13 @@
+.PostListItem{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vmin;
+  margin-left: 15vmin;
+  margin-right: 15vmin;
+}
+
+.PostInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 5vmin;
+}

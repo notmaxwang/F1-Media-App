@@ -5,7 +5,7 @@ export default function PostListItem({post, user}) {
     <div className='PostListItem'>
       <div>
         <div className="PostInfo">
-          <div>User: {user.name}</div>
+          <div>{user.name} said: </div>
           <div>{post.content}</div>
         </div>
       </div>

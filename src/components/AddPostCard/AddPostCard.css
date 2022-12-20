@@ -1,0 +1,11 @@
+.AddPostCard > form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input{
+  height: 10vmin;
+  border-color: red;
+}
+

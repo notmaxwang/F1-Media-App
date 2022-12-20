@@ -41,6 +41,7 @@ export default function DiscussionBoardPage({user}) {
         :
           <></>
       }
+      <h1>User Posts:</h1>
       <PostList posts={posts} user={user}/>
     </div>
   );
