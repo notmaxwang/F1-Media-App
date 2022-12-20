@@ -14,15 +14,15 @@ const status = (res) => {
 }
 
 // Utility functions
-const json = (res) => res.json();
-const error = (err) => console.log("Request failed: ", err);
-const age = (dob) => {
+function json(res) { res.json() };
+function error(err) {console.log("Request failed: ", err)};
+function age(dob) {
   const then = new Date(dob);
   const now = new Date();
   return now.getFullYear() - then.getFullYear();
 };
 
-const getRaceResults = (season) => {
+function getRaceResults(season) {
   const url = api + `${season}`;
   let races;
   return fetch(url + '.json')
@@ -49,5 +49,9 @@ const getRaceResults = (season) => {
       });
     })
   .catch(error);
+}
+
+module.exports = {
+  getRaceResults,
 }
 

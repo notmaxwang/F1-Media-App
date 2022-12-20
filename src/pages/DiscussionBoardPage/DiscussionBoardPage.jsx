@@ -23,7 +23,7 @@ export default function DiscussionBoardPage({user}) {
     <div className="DiscussionBoard">
       <h1>DiscussionBoardPage</h1>
       <button>Make a Post!</button>
-      <PostList posts={posts}/>
+      <PostList posts={posts} user={user}/>
     </div>
   );
 }
