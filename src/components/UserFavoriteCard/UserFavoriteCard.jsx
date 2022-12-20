@@ -1,4 +1,5 @@
 import DriverListItem from '../DriverListItem/DriverListItem';
+import './UserFavoriteCard.css';
 
 
 export default function UserFavoriteCard({drivers, userProfile, user, handleAddToFavorite}) {

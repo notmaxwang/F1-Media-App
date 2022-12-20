@@ -6,5 +6,5 @@ export async function getAll() {
 }
 
 export async function addPost(userData) {
-  return sendRequest(BASE_URL, 'POST', userData);
+  return sendRequest(`${BASE_URL}/new`, 'POST', userData);
 }
