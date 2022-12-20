@@ -12,12 +12,14 @@ export default function UserFavoriteCard({drivers, userProfile, user, handleAddT
   }
 
   if (driverIdArray) {
-    storeDriverList = driverIdArray.map((driverid, idx) =>  <DriverListItem 
+    storeDriverList = driverIdArray.map((driverid, idx) => 
+                                                  <DriverListItem 
                                                     driver={getDriver(driverid)} 
                                                     user={user}
                                                     handleAddToFavorite={handleAddToFavorite}
                                                     key={idx} 
                                                   />);
+    
   }
 
 

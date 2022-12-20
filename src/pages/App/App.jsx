@@ -20,7 +20,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               {/* <Route path="/boards/:raceid/new" element={<NewThreadPage />} /> */}
-              <Route path="/boards" element={<DiscussionBoardPage />} />
+              <Route path="/boards" element={<DiscussionBoardPage user={user}/>} />
               <Route path="/drivers" element={<DriverPage user={user}/>}/>
               <Route path="/user" element={<UserProfilePage user={user}/>}/>
               <Route path="/" element={<HomePage user={user}/>} />
