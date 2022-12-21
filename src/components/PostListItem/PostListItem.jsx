@@ -3,7 +3,7 @@ import AddPostCard from '../AddPostCard/AddPostCard';
 import './PostListItem.css';
 
 export default function PostListItem({post, user, handleDeletePost, handleUpdatePost}) {
-
+  const [currPost, setCurrPost] = useState(post.content);
   const [showUpdate, setShowUpdate] = useState(0);
 
   function showUpdateCard() {
@@ -19,7 +19,7 @@ export default function PostListItem({post, user, handleDeletePost, handleUpdate
       <div>
         <div className="PostInfo">
           <div>{user.name} said: </div>
-          <div>{post.content}</div>
+          <div>{currPost}</div>
           <div className="buttons">
             <button onClick={() => handleDeletePost(post._id)}>X</button>
             <button onClick={() => showUpdateCard()}>Edit</button>
@@ -32,6 +32,7 @@ export default function PostListItem({post, user, handleDeletePost, handleUpdate
               edit={1} 
               handleUpdatePost={handleUpdatePost}
               showUpdateCard={showUpdateCard}
+              setCurrPost={setCurrPost}
             />
             :
             <></>

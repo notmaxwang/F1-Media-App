@@ -1,5 +1,5 @@
 const ROOT_URL = 'https://ergast.com/api/f1/';
-const _COMPONENTS = require('./components.json');
+
 
 module.exports = {
   getRaceResults,
@@ -17,42 +17,32 @@ function status(res) {
   }
 }
 
-// Utility functions
-function json(res) { res.json() };
-function error(err) {console.log("Request failed: ", err)};
+
 function age(dob) {
   const then = new Date(dob);
   const now = new Date();
   return now.getFullYear() - then.getFullYear();
 };
 
-function getRaceResults(season) {
-  const url = api + `${season}`;
-  let races;
-  return fetch(url + '.json')
-    .then(status)
-    .then(json)
-    // Retrieve the array of race results from the data
-    .then( (data) => data.MRData.RaceTable.Races)
-    .then( (data) => {
-      races = data;
-    })
-    // Map the array of race results to a new array of objects with the desired data
-    .then( () => {
-      return races.map( (race) => {
-        const results = race.Results[0];
-        // Check if there are any timing results (no participation)
-        const raced = 'FastestLap' in results ? true : false;
-        return {
-          round: Number(race.round),
-          start: Number(results.grid),
-          finish: Number(results.position),
-          fastestLap: raced ? results.FastestLap.Time.time : '0:00.000',
-          avgSpeed: raced ? Number(results.FastestLap.AverageSpeed.speed) : 0
-        }
-      });
-    })
-  .catch(error);
+async function getRaceResults(req,res) {
+  const url = api + `${req.params.season}`;
+  let response = await fetch(url + '.json')
+  let data = await response.json();
+  let races = data.MRData.RaceTable.Races;
+    
+  let formattedRaces = races.map( (race) => {
+    const results = race.Results[0];
+    // Check if there are any timing results (no participation)
+    const raced = 'FastestLap' in results ? true : false;
+    return {
+      round: Number(race.round),
+      start: Number(results.grid),
+      finish: Number(results.position),
+      fastestLap: raced ? results.FastestLap.Time.time : '0:00.000',
+      avgSpeed: raced ? Number(results.FastestLap.AverageSpeed.speed) : 0
+    }
+  });
+  console.log(formattedRaces);
 }
 
 

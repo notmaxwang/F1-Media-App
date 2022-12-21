@@ -36,7 +36,8 @@ export default function App() {
   }
 
   async function handleUpdatePost(postId, updatedContent) {
-    const updatedPost = await postAPI.updatePost(postId, updatedContent);
+    const updatedPosts = await postAPI.updatePost(postId, updatedContent);
+    setAllPostList(updatedPosts);
   }
 
   return (

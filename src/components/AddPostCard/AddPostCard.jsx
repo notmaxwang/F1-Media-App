@@ -14,8 +14,9 @@ export default class AddPostCard extends Component {
       const {user, content} = this.state;
       const postData = {user, content};
       const postId = this.props.postId;
-      const post = await this.props.handleUpdatePost(postId, postData);
+      const updatedPosts = await this.props.handleUpdatePost(postId, postData);
       this.props.showUpdateCard(0);
+      this.props.setCurrPost(this.state.content);
     } catch {
       console.log('Post Failed to Upload');
     }
