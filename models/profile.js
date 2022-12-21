@@ -20,6 +20,14 @@ profileSchema.statics.getFavDriverList = function(user) {
   return this.find({user: user}).favDrivers;
 }
 
+profileSchema.methods.addPost = async function (postid) {
+  const currProfile = this;
+  const Post = mongoose.model('Post');
+  const getPost = await Post.findById(postid);
+  currProfile.posts.push(getPost._id);
+  return currProfile.save();
+}
+
 // Instance method for adding a favorite driver to profile page
 profileSchema.methods.addFavorite = async function (driverId) {
   // 'this' keyword is bound to the profile

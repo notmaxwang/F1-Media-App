@@ -4,7 +4,7 @@ import PostList from '../../components/PostList/PostList';
 import AddPostCard from '../../components/AddPostCard/AddPostCard';
 import './DiscussionBoardPage.css'
 
-export default function DiscussionBoardPage({user}) {
+export default function DiscussionBoardPage({user, setAllPostList}) {
 
   const [posts, setPosts] = useState([]);
   const [addPostCard, setAddPostCard] = useState(0);
@@ -20,6 +20,7 @@ export default function DiscussionBoardPage({user}) {
   async function handleAddPost(post) {
     const addCurrPost = await postAPI.addPost(post);
     setPosts([addCurrPost, ...posts]);
+    setAllPostList([[...posts, addCurrPost]]);
   }
 
   async function loadAddPostCard() {
@@ -32,7 +33,6 @@ export default function DiscussionBoardPage({user}) {
   
   return (
     <div className="DiscussionBoard">
-      <h1>DiscussionBoardPage</h1>
       <button onClick={loadAddPostCard}>Make a Post!</button>
       { addPostCard ?
           <div className="AddPostCard">

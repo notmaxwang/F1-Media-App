@@ -1,4 +1,5 @@
 const Post = require('../../models/post');
+const Profile = require('../../models/profile');
 
 
 module.exports = {
@@ -16,6 +17,8 @@ async function create(req, res) {
   try {
     // Add the post to the db
     const post = await Post.create(req.body);
+    const currProfile = await Profile.findOne({user: req.user});
+    await currProfile.addPost(post.id);
     res.json(post);
   } catch (err) {
     res.status(400).json(err);

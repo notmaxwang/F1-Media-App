@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import UserFavoriteCard from '../../components/UserFavoriteCard/UserFavoriteCard';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
+import UserPostList from '../../components/UserPostList/UserPostList';
 import * as profileAPI from '../../utilities/profile-api';
 
 
 
-export default function UserProfilePage({ user, allDriverList }) {
+export default function UserProfilePage({ user, allDriverList, allPostList }) {
 
   const [userProfile, setUserProfile] = useState([]);
 
@@ -29,7 +30,8 @@ export default function UserProfilePage({ user, allDriverList }) {
     <div>
       <h2>{user.name}'s Profile Page</h2>
       <UserInfoCard user={user} />
-      <UserFavoriteCard drivers={allDriverList} userProfile={userProfile} user={user} handleAddToFavorite={handleAddToFavorite}/>
+      <UserPostList user={user} userProfile={userProfile} allPostList={allPostList} />
+      <UserFavoriteCard user={user} userProfile={userProfile} drivers={allDriverList} handleAddToFavorite={handleAddToFavorite}/>
     </div>
   );
 }
