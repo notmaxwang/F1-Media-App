@@ -36,7 +36,8 @@ export default function App() {
   }, []);
 
   async function handleDeletePost(postId) {
-    await postAPI.deletePost(postId);
+    const updatedPosts = await postAPI.deletePost(postId);
+    setAllPostList(updatedPosts);
   }
 
   async function handleUpdatePost(postId, updatedContent) {

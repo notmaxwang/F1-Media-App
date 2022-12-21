@@ -2,8 +2,11 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2vmin;
-  margin-left: 15vmin;
-  margin-right: 15vmin;
+  margin-left: 18vmin;
+  margin-right: 18vmin;
+  padding: 1rem;
+  border: 2px solid red;
+  border-radius: 8px;
 }
 
 .PostInfo{
@@ -12,7 +15,16 @@
   gap: 5vmin;
 }
 
-.buttons{
+.PostContent{
+  margin-top: 2vmin;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.PostInfo buttons{
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: solid;
+  border-radius: 0.5rem;
+  font-weight: bold;
 }

@@ -22,13 +22,19 @@ async function updatePost(req, res) {
 }
 
 async function deletePost(req, res) {
-  const postDelete = await Post.findById(req.params.id);
-  const profile = await Profile.findOne({user: req.user});
-  const postIndex = profile.posts.indexOf(postDelete.id);
-  profile.posts.splice(postIndex, 1);
-  await Post.remove({_id: req.params.id});
-  await profile.save();
-  res.json(profile);
+  try {
+    const postDelete = await Post.findById(req.params.id);
+    const profile = await Profile.findOne({user: req.user});
+    const postIndex = profile.posts.indexOf(postDelete.id);
+    profile.posts.splice(postIndex, 1);
+    await Post.remove({_id: req.params.id});
+    await profile.save();
+    const allPosts = await Post.find({});
+    res.json(allPosts);
+  } catch {
+    console.log('Cannot Delete');
+  }
+  
 }
 
 async function index(req, res) {

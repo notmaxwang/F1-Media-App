@@ -26,8 +26,10 @@ export default function PostListItem({post, user, handleDeletePost, handleUpdate
     <div className='PostListItem'>
       <div>
         <div className="PostInfo">
-          <div>{user.name} said: </div>
-          <div>{currPost}</div>
+          <div className="PostContent">
+            <div>{user.name} said: </div>
+            <div>{currPost}</div>
+          </div>
           <div className="buttons">
             <button onClick={() => handleDeletePost(post._id)}>X</button>
             <button onClick={() => showUpdateCard()}>Edit</button>
