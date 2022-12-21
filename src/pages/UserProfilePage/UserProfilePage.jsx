@@ -6,7 +6,7 @@ import * as profileAPI from '../../utilities/profile-api';
 
 
 
-export default function UserProfilePage({ user, allDriverList, allPostList }) {
+export default function UserProfilePage({ user, allDriverList, allPostList, handleDeletePost }) {
 
   const [userProfile, setUserProfile] = useState([]);
 
@@ -30,7 +30,7 @@ export default function UserProfilePage({ user, allDriverList, allPostList }) {
     <div>
       <h2>{user.name}'s Profile Page</h2>
       <UserInfoCard user={user} />
-      <UserPostList user={user} userProfile={userProfile} allPostList={allPostList} />
+      <UserPostList user={user} userProfile={userProfile} allPostList={allPostList} handleDeletePost={handleDeletePost}/>
       <UserFavoriteCard user={user} userProfile={userProfile} drivers={allDriverList} handleAddToFavorite={handleAddToFavorite}/>
     </div>
   );

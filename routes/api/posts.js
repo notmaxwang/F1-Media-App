@@ -8,6 +8,8 @@ router.post('/new', postsCtrl.create);
 // GET /api/posts
 router.get('/', postsCtrl.index);
 
+// DELETE post
+router.delete('/:id', postsCtrl.deletePost);
 
 
 module.exports = router;

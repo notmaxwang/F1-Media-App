@@ -8,3 +8,7 @@ export async function getAll() {
 export async function addPost(userData) {
   return sendRequest(`${BASE_URL}/new`, 'POST', userData);
 }
+
+export async function deletePost(postId) {
+  return sendRequest(`${BASE_URL}/${postId}`, 'DELETE');
+}

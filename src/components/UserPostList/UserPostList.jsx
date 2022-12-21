@@ -7,7 +7,6 @@ export default function UserPostList({user, userProfile, allPostList }) {
 
   function getPost(id) {
     const temp = (allPostList.filter(post => post._id === id));
-    console.log(temp);
     return temp[0];
   }
 

@@ -31,6 +31,11 @@ export default function App() {
     getData();
   }, []);
 
+  async function handleDeletePost(postId) {
+    await postAPI.deletePost(postId);
+  }
+
+
   return (
     <main className="App">
       { user ?
@@ -39,9 +44,9 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               {/* <Route path="/boards/:raceid/new" element={<NewThreadPage />} /> */}
-              <Route path="/boards" element={<DiscussionBoardPage user={user} setAllPostList={setAllPostList}/>} />
+              <Route path="/boards" element={<DiscussionBoardPage user={user} setAllPostList={setAllPostList} handleDeletePost={handleDeletePost}/>} />
               <Route path="/drivers" element={<DriverPage user={user} allDriverList={allDriverList} allTeamList={allTeamList}/>}/>
-              <Route path="/user" element={<UserProfilePage user={user} allDriverList={allDriverList} allPostList={allPostList}/>}/>
+              <Route path="/user" element={<UserProfilePage user={user} allDriverList={allDriverList} allPostList={allPostList} handleDeletePost={handleDeletePost}/>}/>
               <Route path="/" element={<HomePage user={user}/>} />
             </Routes>
           </>

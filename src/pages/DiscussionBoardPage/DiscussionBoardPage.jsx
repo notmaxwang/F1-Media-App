@@ -4,7 +4,7 @@ import PostList from '../../components/PostList/PostList';
 import AddPostCard from '../../components/AddPostCard/AddPostCard';
 import './DiscussionBoardPage.css'
 
-export default function DiscussionBoardPage({user, setAllPostList}) {
+export default function DiscussionBoardPage({user, setAllPostList, handleDeletePost}) {
 
   const [posts, setPosts] = useState([]);
   const [addPostCard, setAddPostCard] = useState(0);
@@ -42,7 +42,7 @@ export default function DiscussionBoardPage({user, setAllPostList}) {
           <></>
       }
       <h1>User Posts:</h1>
-      <PostList posts={posts} user={user}/>
+      <PostList posts={posts} user={user} handleDeletePost={handleDeletePost}/>
     </div>
   );
 }
