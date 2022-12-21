@@ -6,6 +6,19 @@ module.exports = {
   create,
   index,
   deletePost,
+  updatePost,
+}
+
+async function updatePost(req, res) {
+  try {
+    const post = await Post.findById(req.params.id);
+    post.content = req.body.content;
+    await post.save();
+    const allPosts = await Post.find({});
+    res.json(allPosts);
+  } catch {
+    console.log('Cannot Update');
+  }
 }
 
 async function deletePost(req, res) {

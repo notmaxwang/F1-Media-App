@@ -4,7 +4,7 @@ import PostList from '../../components/PostList/PostList';
 import AddPostCard from '../../components/AddPostCard/AddPostCard';
 import './DiscussionBoardPage.css'
 
-export default function DiscussionBoardPage({user, setAllPostList, handleDeletePost}) {
+export default function DiscussionBoardPage({user, setAllPostList, handleDeletePost, handleUpdatePost}) {
 
   const [posts, setPosts] = useState([]);
   const [addPostCard, setAddPostCard] = useState(0);
@@ -36,13 +36,25 @@ export default function DiscussionBoardPage({user, setAllPostList, handleDeleteP
       <button onClick={loadAddPostCard}>Make a Post!</button>
       { addPostCard ?
           <div className="AddPostCard">
-            <AddPostCard user={user} handleAddPost={handleAddPost} setAddPostCard={setAddPostCard}/>
+            <AddPostCard 
+              user={user} 
+              handleAddPost={handleAddPost} 
+              setAddPostCard={setAddPostCard} 
+              postId={''}
+              edit={0} 
+              content={''}
+              handleUpdatePost={handleUpdatePost}/>
           </div>
         :
           <></>
       }
       <h1>User Posts:</h1>
-      <PostList posts={posts} user={user} handleDeletePost={handleDeletePost}/>
+      <PostList 
+        posts={posts} 
+        user={user} 
+        handleDeletePost={handleDeletePost} 
+        handleUpdatePost={handleUpdatePost}
+      />
     </div>
   );
 }

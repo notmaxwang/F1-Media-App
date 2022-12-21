@@ -11,5 +11,8 @@ router.get('/', postsCtrl.index);
 // DELETE post
 router.delete('/:id', postsCtrl.deletePost);
 
+// UPDATE post
+router.put('/:id', postsCtrl.updatePost);
+
 
 module.exports = router;

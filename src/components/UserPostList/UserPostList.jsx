@@ -1,7 +1,7 @@
 import PostListItem from "../PostListItem/PostListItem";
 import './UserPostList.css';
 
-export default function UserPostList({user, userProfile, allPostList }) {
+export default function UserPostList({user, userProfile, allPostList, handleDeletePost }) {
   const postIdArray = userProfile.posts;
   let storePostList = [];
 
@@ -15,6 +15,7 @@ export default function UserPostList({user, userProfile, allPostList }) {
                                                   <PostListItem 
                                                     post={getPost(postid)} 
                                                     user={user}
+                                                    handleDeletePost={handleDeletePost}
                                                     key={postid} 
                                                   />);
     

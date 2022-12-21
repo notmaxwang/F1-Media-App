@@ -5,9 +5,20 @@ export default class AddPostCard extends Component {
 
   state = {
     user: this.props.user,
-    content:'',
+    content:this.props.content,
   };
-  
+
+  handleEdit = async (evt) => {
+    evt.preventDefault(); 
+    try {
+      const {user, content} = this.state;
+      const postData = {user, content};
+      const postId = this.props.postId;
+      const post = await this.props.handleUpdatePost(postId, postData);
+    } catch {
+      console.log('Post Failed to Upload');
+    }
+  }
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -33,7 +44,11 @@ export default class AddPostCard extends Component {
         <h1>Write Something!</h1>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="content" value={this.state.content} onChange={this.handleChange}/>
-          <button type="submit">Post!</button>
+          { this.props.edit ?
+            <button onClick={this.handleEdit}>Edit!</button>  
+            :
+            <button type="submit">Post!</button>
+          }
         </form>
       </div>
     );

@@ -35,6 +35,9 @@ export default function App() {
     await postAPI.deletePost(postId);
   }
 
+  async function handleUpdatePost(postId, updatedContent) {
+    const updatedPost = await postAPI.updatePost(postId, updatedContent);
+  }
 
   return (
     <main className="App">
@@ -43,10 +46,27 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              {/* <Route path="/boards/:raceid/new" element={<NewThreadPage />} /> */}
-              <Route path="/boards" element={<DiscussionBoardPage user={user} setAllPostList={setAllPostList} handleDeletePost={handleDeletePost}/>} />
-              <Route path="/drivers" element={<DriverPage user={user} allDriverList={allDriverList} allTeamList={allTeamList}/>}/>
-              <Route path="/user" element={<UserProfilePage user={user} allDriverList={allDriverList} allPostList={allPostList} handleDeletePost={handleDeletePost}/>}/>
+              <Route path="/boards" 
+                element={<DiscussionBoardPage 
+                user={user} 
+                setAllPostList={setAllPostList} 
+                handleDeletePost={handleDeletePost}
+                handleUpdatePost={handleUpdatePost}/>} 
+              />
+              <Route path="/drivers" 
+                element={<DriverPage 
+                user={user} 
+                allDriverList={allDriverList} 
+                allTeamList={allTeamList}/>}
+              />
+              <Route path="/user" 
+                element={<UserProfilePage 
+                user={user} 
+                allDriverList={allDriverList} 
+                allPostList={allPostList} 
+                handleDeletePost={handleDeletePost}
+                handleUpdatePost={handleUpdatePost}/>}
+              />
               <Route path="/" element={<HomePage user={user}/>} />
             </Routes>
           </>

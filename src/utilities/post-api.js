@@ -12,3 +12,7 @@ export async function addPost(userData) {
 export async function deletePost(postId) {
   return sendRequest(`${BASE_URL}/${postId}`, 'DELETE');
 }
+
+export async function updatePost(postId, updatedContent) {
+  return sendRequest(`${BASE_URL}/${postId}`, 'PUT', updatedContent);
+}
