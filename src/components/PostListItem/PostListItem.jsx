@@ -31,6 +31,7 @@ export default function PostListItem({post, user, handleDeletePost, handleUpdate
               postId={post._id} 
               edit={1} 
               handleUpdatePost={handleUpdatePost}
+              showUpdateCard={showUpdateCard}
             />
             :
             <></>
