@@ -1,0 +1,10 @@
+.HomeTitle {
+  padding-top: 25vmin;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.HomeTitle > h1 {
+  font-size: 10vw;
+}

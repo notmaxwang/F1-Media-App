@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import './HomePage.css';
 
 class HomePage extends Component {
 
@@ -27,8 +28,8 @@ class HomePage extends Component {
 
   render() {
     return(
-      <div style={this.state.bgStyle}>
-        <h1>Start exploring!</h1>
+      <div className="HomeTitle" style={this.state.bgStyle}>
+        <h1 className="animate__animated animate__zoomInLeft">Start exploring!</h1>
       </div>
     );
   }
