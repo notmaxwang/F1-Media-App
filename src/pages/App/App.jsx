@@ -10,6 +10,7 @@ import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import * as driverAPI from '../../utilities/driver-api';
 import * as teamAPI from '../../utilities/team-api';
 import * as postAPI from '../../utilities/post-api';
+import * as profileAPI from '../../utilities/profile-api';
 import './App.css';
 import { useEffect } from 'react';
 
@@ -18,15 +19,18 @@ export default function App() {
   const [allDriverList, setAllDriverList] = useState([]);
   const [allTeamList, setAllTeamList] = useState([]);
   const [allPostList, setAllPostList] = useState([]);
+  const [userProfile, setUserProfile] = useState([]);
 
   useEffect(function() {
     async function getData() {
       const driverList = await driverAPI.getAll();
       const teamList = await teamAPI.getAll();
       const postList = await postAPI.getAll();
+      const currProfile = await profileAPI.getProfile(user);
       setAllDriverList(driverList);
       setAllTeamList(teamList);
       setAllPostList(postList);
+      setUserProfile(currProfile);
     }
     getData();
   }, []);
@@ -65,6 +69,7 @@ export default function App() {
                 user={user} 
                 allDriverList={allDriverList} 
                 allPostList={allPostList} 
+                userProfile={userProfile}
                 handleDeletePost={handleDeletePost}
                 handleUpdatePost={handleUpdatePost}/>}
               />

@@ -5,18 +5,9 @@ import UserPostList from '../../components/UserPostList/UserPostList';
 import * as profileAPI from '../../utilities/profile-api';
 
 
+export default function UserProfilePage({ user, allDriverList, allPostList, userProfile, handleDeletePost, handleUpdatePost }) {
+  
 
-export default function UserProfilePage({ user, allDriverList, allPostList, handleDeletePost }) {
-
-  const [userProfile, setUserProfile] = useState([]);
-
-  useEffect(function() {
-    async function getUserProfile() {
-      const currProfile = await profileAPI.getProfile(user);
-      setUserProfile(currProfile);
-    }
-    getUserProfile();
-  }, [])
 
   async function handleAddToFavorite(user, driver) {
     
@@ -30,7 +21,7 @@ export default function UserProfilePage({ user, allDriverList, allPostList, hand
     <div>
       <h2>{user.name}'s Profile Page</h2>
       <UserInfoCard user={user} />
-      <UserPostList user={user} userProfile={userProfile} allPostList={allPostList} handleDeletePost={handleDeletePost}/>
+      <UserPostList user={user} userProfile={userProfile} allPostList={allPostList} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost}/>
       <UserFavoriteCard user={user} userProfile={userProfile} drivers={allDriverList} handleAddToFavorite={handleAddToFavorite}/>
     </div>
   );

@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
 import {useState} from 'react';
 import AddPostCard from '../AddPostCard/AddPostCard';
 import './PostListItem.css';
 
 export default function PostListItem({post, user, handleDeletePost, handleUpdatePost}) {
-  const [currPost, setCurrPost] = useState(post.content);
+  const [currPost, setCurrPost] = useState('');
   const [showUpdate, setShowUpdate] = useState(0);
+
+  useEffect(function() {
+    if(post) {
+      setCurrPost(post.content);
+    }
+  }, []);
+  
 
   function showUpdateCard() {
     if (showUpdate === 0) {

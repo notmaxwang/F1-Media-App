@@ -20,7 +20,8 @@ export default function DiscussionBoardPage({user, setAllPostList, handleDeleteP
   async function handleAddPost(post) {
     const addCurrPost = await postAPI.addPost(post);
     setPosts([addCurrPost, ...posts]);
-    setAllPostList([[...posts, addCurrPost]]);
+    const updatedPosts = await postAPI.getAll();
+    setAllPostList(updatedPosts);
   }
 
   async function loadAddPostCard() {
