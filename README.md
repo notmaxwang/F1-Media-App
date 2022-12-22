@@ -31,6 +31,7 @@ customize their profile page to display their favorite drivers and race.
 
 ![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
 ![Express](https://img.shields.io/badge/-Express-05122A?style=flat&logo=express)
+![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)
 ![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
