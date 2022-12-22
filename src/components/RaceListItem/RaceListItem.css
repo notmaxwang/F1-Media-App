@@ -1,0 +1,10 @@
+.RaceListItem{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vmin;
+  margin-left: 18vmin;
+  margin-right: 18vmin;
+  padding: 1rem;
+  border: 2px solid red;
+  border-radius: 8px;
+}

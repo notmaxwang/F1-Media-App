@@ -26,7 +26,7 @@ export default function RacePage() {
 
   return(
     <>
-      <h1>Coming Soon!</h1>
+      <h1>Race Info (2022 Season)</h1>
       <div><RaceList raceData={raceData}/></div>
     </>
   );
