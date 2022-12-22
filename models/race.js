@@ -7,6 +7,11 @@ const raceSchema = new Schema({
   url: '',
   raceName: '',
   date: '',
+  Circuit:{},
+  FirstPractice:{},
+  SecondPractice:{},
+  ThirdPractice:{},
+  Qualifying:{},
 });
 
 

@@ -12,7 +12,6 @@ export default function RacePage() {
     async function getRaceData() {
       try {
         const storeRaces = await raceAPI.getRaceResults();
-        console.log(storeRaces);
         setRaceData(storeRaces);
       } catch(err) {
         console.log(err);

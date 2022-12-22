@@ -1,5 +1,5 @@
 const ROOT_URL = 'https://ergast.com/api/f1/';
-
+const Race = require('../../models/race');
 
 module.exports = {
   getRaceResults,
@@ -25,10 +25,15 @@ function age(dob) {
 };
 
 async function getRaceResults(req,res) {
-  const url = ROOT_URL + '2022';
-  let response = await fetch(url + '.json');
-  let data = await response.json();
-  let races = data.MRData.RaceTable.Races;
+  // const url = ROOT_URL + '2022';
+  // let response = await fetch(url + '.json');
+  // let data = await response.json();
+  // let races = data.MRData.RaceTable.Races;
+  // races.forEach(async(race) => {
+  //   const storeRace = await Race.create(race);
+  // })
+  // res.json(races);
+  const races = await Race.find({});
   res.json(races);
 }
 
