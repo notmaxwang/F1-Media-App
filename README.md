@@ -21,6 +21,7 @@ customize their profile page to display their favorite drivers and race.
 
 ![img](https://i.imgur.com/Lyv0HoH.jpg)
 ![img](https://i.imgur.com/qzNqp0c.png)
+![img](https://i.imgur.com/94EC7Xc.png)
 ![img](https://i.imgur.com/xiqXlei.png)
 ![img](https://i.imgur.com/mv0Ktqy.png)
 </div>
