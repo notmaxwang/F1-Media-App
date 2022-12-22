@@ -7,9 +7,9 @@
 ## Getting Started
 
 ### Start Browsing!
+[F1-Media](https://f1-media-app.herokuapp.com/)
 
-
-
+[Wireframe](https://trello.com/b/gxSbIyIe/f1-webapp)
 
 ### Description
 
@@ -19,6 +19,10 @@ about the current race highlights, events and results. User can also
 customize their profile page to display their favorite drivers and race.
 
 
+![img](https://i.imgur.com/Lyv0HoH.jpg)
+![img](https://i.imgur.com/qzNqp0c.png)
+![img](https://i.imgur.com/xiqXlei.png)
+![img](https://i.imgur.com/mv0Ktqy.png)
 </div>
 
 
@@ -38,3 +42,4 @@ customize their profile page to display their favorite drivers and race.
 
 ### Upcoming Features
 * Search for specific race or driver.
+* Add User Profile Picture
