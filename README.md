@@ -1,6 +1,6 @@
 <div id="description" align="center">
 
-# 🏎️F1 Media🚗
+# 🏎️F1 Media🏎️
 
 ### A Website Created and Designed by Max Wang
 
