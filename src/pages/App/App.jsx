@@ -13,6 +13,7 @@ import * as postAPI from '../../utilities/post-api';
 import * as profileAPI from '../../utilities/profile-api';
 import './App.css';
 import { useEffect } from 'react';
+import RacePage from '../RacePage/RacePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -52,6 +53,9 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
+              <Route path='/races'
+                element={<RacePage />} 
+              />
               <Route path="/boards" 
                 element={<DiscussionBoardPage 
                 user={user} 

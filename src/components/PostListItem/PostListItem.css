@@ -19,6 +19,7 @@
   margin-top: 2vmin;
   display: flex;
   flex-direction: row;
+  gap: 4vmin;
 }
 
 .PostInfo buttons{

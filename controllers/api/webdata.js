@@ -25,24 +25,11 @@ function age(dob) {
 };
 
 async function getRaceResults(req,res) {
-  const url = api + `${req.params.season}`;
-  let response = await fetch(url + '.json')
+  const url = ROOT_URL + '2022';
+  let response = await fetch(url + '.json');
   let data = await response.json();
   let races = data.MRData.RaceTable.Races;
-    
-  let formattedRaces = races.map( (race) => {
-    const results = race.Results[0];
-    // Check if there are any timing results (no participation)
-    const raced = 'FastestLap' in results ? true : false;
-    return {
-      round: Number(race.round),
-      start: Number(results.grid),
-      finish: Number(results.position),
-      fastestLap: raced ? results.FastestLap.Time.time : '0:00.000',
-      avgSpeed: raced ? Number(results.FastestLap.AverageSpeed.speed) : 0
-    }
-  });
-  console.log(formattedRaces);
+  res.json(races);
 }
 
 
