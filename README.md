@@ -13,8 +13,8 @@
 
 ### Description
 
-This is a website app that is designed for people that are interested in 
-the sport of Formula 1. It provides forums for users to post discussions 
+This is a website designed for people who are interested in 
+the sport of Formula 1. It provides a page for users to post messages 
 about the current race highlights, events and results. User can also 
 customize their profile page to display their favorite drivers and race.
 
